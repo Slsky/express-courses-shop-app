@@ -1,36 +1,96 @@
-<div :class="{ 'is-active':isActive}" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <p class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-        </p>
-    </div>
-    <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
-</div>
-
-
 {{#content "scripts-block" mode='append'}}
-<script type="text/x-template" id="modal-frame">
-    <div :class="{ 'is-active':isActive}" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <slot> 
-                {% name %}
-                <p class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-                </p>
-            </slot>
+
+<script type="text/x-template" id="modal-cart">
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Cart</p>
+            <button class="delete" aria-label="close" @click="$emit('closemodal')"></button>
+        </header>
+        <section class="modal-card-body">
+            <div id="cart-table">
+            <div v-if="courses.length">
+                <table class="table  is-narrow is-hoverable is-fullwidth  has-text-centered"
+                    {{!-- data-cart="{{ context }}" --}}
+                    >
+                    <thead>
+                        <tr>
+                            <th>Course name</th>
+                            <th>Price</th>
+                            <th>Count</th>
+                            <th>Active</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="course in  getCourses" v-bind:key="course.id">
+                            <td>{% course.title %}</td>
+                            <td>{% course.price %}</td>
+                            <td>{% course.count %}</td>
+                            <td class=" has-text-centered">
+                                <button v-on:click="onDeliteButton(course.id)" class="button is-danger is-small is-left">
+                                    Delite
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div v-else>
+                <p class="notification is-warning">No added courses</p>
+            </div>
         </div>
-        <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
+        </section>
+        <footer class="modal-card-foot">
+                        Total price: {%  price %}
+
+                        {{!-- <button class="button is-success">Save changes</button>
+            <button class="button">Cancel</button> --}}
+        </footer>
     </div>
-
 </script>
 
-<script type="text/x-template" id="tem">
-<h1>{% hello %}</h1>
+
+
+<script type="text/x-template" id="modal-sign-in">
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Sign in</p>
+            <button class="delete" aria-label="close" @click="$emit('closemodal')"></button>
+        </header>
+        <section class="modal-card-body">
+        <div>
+            Auth
+        </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Sign in</button>
+            <button class="button">Cancel</button>
+        </footer>
+    </div>
 </script>
 
-<script src="/js/authModal.js"></script>
 
 
+<script type="text/x-template" id="modal-login">
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Login</p>
+            <button class="delete" aria-label="close" @click="$emit('closemodal')"></button>
+        </header>
+        <section class="modal-card-body">
+        <div>
+            Login
+        </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Login</button>
+            <button class="button">Cancel</button>
+        </footer>
+    </div>
+</script>
+
+
+
+<script src="/js/modal/cart.modal.script.js"></script>
+<script src="/js/modal/modal.script.js"></script>
 {{/content}}

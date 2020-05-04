@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "title": "Angular",
+        "price": "2000",
+        "imgUrl": "https://s.dou.ua/CACHE/images/img/announces/angular-840_jTPVvkH/501ad9ff1fceb28a17a3d2070b4d4209.jpg",
+        "id": "6c498081-ace0-436d-9cf3-e43aeaf9da4a"
+    },
+    {
+        "title": "React",
+        "price": "3500",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png",
+        "id": "4f5dc0dc-c019-463c-945b-1cba26978716"
+    }
+]

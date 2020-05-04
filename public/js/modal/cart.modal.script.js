@@ -1,8 +1,10 @@
-let cartTable = new Vue({
-    el: '#cart-table',
-    data: {
-        courses: [],
-        price: 0
+const modalCart = {
+    template: '#modal-cart',
+    data() {
+        return {
+            courses: [],
+            price: 0
+        }
     },
     methods: {
         onDeliteButton: async function (id) {
@@ -40,9 +42,5 @@ let cartTable = new Vue({
     computed: {
         getCourses: function () { return this.courses },
     }
-})
-
-
-
-
+}
 
