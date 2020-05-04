@@ -5,13 +5,13 @@ const Cart = require('../models/cart')
 const Course = require('../models/courses')
 
 
+// router.get('/', async (req, res) => {
+
+//     const context = JSON.stringify(await Cart.fetch())
+//     res.render('cart')
+// })
+
 router.get('/', async (req, res) => {
-
-    const context = JSON.stringify(await Cart.fetch())
-    res.render('cart')
-})
-
-router.get('/:id', async (req, res) => {
 
     const context = JSON.stringify(await Cart.fetch())
     res.json(context)

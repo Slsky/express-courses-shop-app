@@ -2,13 +2,12 @@ const { Router } = require('express')
 const Courses = require('../models/courses')
 const router = Router()
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
+    res.render('courses', { isCpurses: true })
+})
 
-    res.render('courses', {
-        courses: await Courses.getAll(),
-        isCpurses: true
-    }
-    )
+router.get('/get', async (req, res) => {
+    res.json(await Courses.getAll())
 })
 
 router.get('/edit/:id', async (req, res) => {
@@ -27,9 +26,9 @@ router.post('/edit/:id', async (req, res) => {
 })
 
 router.delete('/delete/:id', async (req, res) => {
-
     await Courses.removeBy('id', req.params.id)
-    res.redirect('/courses')
+    res.json(await Courses.getAll())
+    // res.redirect('/courses')
 })
 
 module.exports = router

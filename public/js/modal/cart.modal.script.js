@@ -1,9 +1,18 @@
 const modalCart = {
     template: '#modal-cart',
+    props: {
+        initial: {
+            type: Object,
+            default: {
+                courses: [],
+                price: 0
+            }
+        }
+    },
     data() {
         return {
-            courses: [],
-            price: 0
+            courses: this.initial.courses,
+            price: this.initial.price
         }
     },
     methods: {
@@ -16,21 +25,18 @@ const modalCart = {
                     .then(res => res.json())
                     .then(result => JSON.parse(result))
 
-                this.courses = afterDeleteData.courses
-                this.price = afterDeleteData.price
+                this.initial.courses = afterDeleteData.courses
+                this.initial.price = afterDeleteData.price
 
             } catch (e) {
                 console.log('Error afterFetch', e)
-
-                this.courses = []
-                this.price = 0
             }
 
         }
 
     },
     created: async function () {
-        let fetchData = await fetch('cart/1', {
+        let fetchData = await fetch('/cart', {
             method: 'GET',
         })
             .then(res => res.json())
@@ -40,7 +46,8 @@ const modalCart = {
         this.price = fetchData.price
     },
     computed: {
-        getCourses: function () { return this.courses },
+        getCourses: function () { return this.initial.courses },
+        getTotalPrice: function () { return this.initial.price }
     }
 }
 

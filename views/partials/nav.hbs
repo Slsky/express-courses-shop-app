@@ -72,7 +72,7 @@
 
             <div :class="{ 'is-active': isActive}" class="modal">
                 <div class="modal-background" @click="isActive = false"></div>
-                <component :is="selectedModal" v-on:closemodal="isActive=false"></component>
+                <component :is="selectedModal" v-on:closemodal="isActive=false" :initial="data"></component>
             </div>
         </div>
     </div>

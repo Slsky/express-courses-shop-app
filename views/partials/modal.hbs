@@ -8,7 +8,7 @@
         </header>
         <section class="modal-card-body">
             <div id="cart-table">
-            <div v-if="courses.length">
+            <div v-if="!getCourses">
                 <table class="table  is-narrow is-hoverable is-fullwidth  has-text-centered"
                     {{!-- data-cart="{{ context }}" --}}
                     >
@@ -41,7 +41,7 @@
         </div>
         </section>
         <footer class="modal-card-foot">
-                        Total price: {%  price %}
+                        Total price: {%  getTotalPrice %}
 
                         {{!-- <button class="button is-success">Save changes</button>
             <button class="button">Cancel</button> --}}

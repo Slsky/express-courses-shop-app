@@ -14,7 +14,6 @@ var app = new Vue({
     },
     methods: {
         checkForm: debouce(function (e) {
-
             if (this.price && this.title && this.url) {
                 return true
             }
