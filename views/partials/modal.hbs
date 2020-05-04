@@ -1,0 +1,36 @@
+<div :class="{ 'is-active':isActive}" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <p class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+        </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
+</div>
+
+
+{{#content "scripts-block" mode='append'}}
+<script type="text/x-template" id="modal-frame">
+    <div :class="{ 'is-active':isActive}" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <slot> 
+                {% name %}
+                <p class="image is-4by3">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                </p>
+            </slot>
+        </div>
+        <button class="modal-close is-large" aria-label="close" v-on:click="closeModal"></button>
+    </div>
+
+</script>
+
+<script type="text/x-template" id="tem">
+<h1>{% hello %}</h1>
+</script>
+
+<script src="/js/authModal.js"></script>
+
+
+{{/content}}

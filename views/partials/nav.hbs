@@ -1,0 +1,91 @@
+<div class="navbar   wrapper" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img class="logo" src="/img/logo.png">
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+            data-burger-menu="burger-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="burger-menu" class="navbar-menu">
+        <div class="navbar-start">
+
+            {{#if isHome}}
+            <a href="/" class="navbar-item is-active-nav">
+                Home
+            </a>
+            {{else}}
+            <a href="/" class="navbar-item">
+                Home
+            </a>
+            {{/if}}
+
+            {{#if isCourses}}
+            <a href="/courses" class="navbar-item is-active-nav">
+                Courses
+            </a>
+            {{else}}
+            <a href="/courses" class="navbar-item">
+                Courses
+            </a>
+            {{/if}}
+
+            {{#if isAddCourse}}
+            <a href="/add-course" class="navbar-item is-active-nav">
+                Add Course
+            </a>
+            {{else}}
+            <a href="/add-course" class="navbar-item">
+                Add Course
+            </a>
+            {{/if}}
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons" id="modal">
+                    <a href="/cart" class="button is-rounded is-info is-small" @click.prevent="openModal">
+                        <span class="icon" aria-label="cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                    </a>
+                    <div :class="{ 'is-active': isActive}" class="modal">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <slot>
+                                <p class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                                </p>
+                            </slot>
+                        </div>
+                        <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-item">
+                <a class="button is-primary" @click="closeModal">
+                    <strong>Sign up</strong>
+                </a>
+            </div>
+            <div class="navbar-item">
+                <a class="button is-light" @click="closeModal">
+                    Log in
+                </a>
+            </div>
+
+        </div>
+    </div>
+    {{!-- <hello-tem></hello-tem> --}}
+</div>
+</div>
+
+
+<script type="text/x-template" id="modal-frame">
+
+</script>

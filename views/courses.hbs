@@ -1,0 +1,45 @@
+{{#content "hero-block"}}
+
+{{#each courses}}
+<div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+        <section class="section">
+            <div class="card">
+                <header class="card-header">
+                    <div class="card-header-title">
+                        {{title}}
+                    </div>
+                </header>
+                <div class="card-image">
+                    <figure class="image is-6">
+                        <img src="{{imgUrl}}" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    </div>
+                </div>
+                <footer class="card-footer">
+
+                    <form action="/cart/{{id}}/add" class="card-footer-item" method="POST">
+                        <button class="button is-primary" type="submit">В корзину!</button>
+                    </form>
+
+                    <a href="/courses/edit/{{id}}" class="card-footer-item">Реактировать</a>
+
+                    <form class="card-footer-item" action="/courses/delete/{{id}}" method="DELETE">
+                        <button class="button is-danger" type="submit">Удалить курс!</button>
+                    </form>
+
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>
+{{/each}}
+{{/content}}

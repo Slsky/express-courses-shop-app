@@ -1,0 +1,29 @@
+.wrapper {
+  padding: 1rem;
+}
+
+.is-active-nav {
+  background-color: rgb(250, 250, 250);
+}
+/* 
+.card-size-small {
+  height: 100px;
+  width: 10%;
+} */
+.my-card {
+  /* display: none; */
+  height: 100px;
+  width: 100px;
+  background-color: tomato;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-card-2 {
+  /* display: none; */
+  height: 100px;
+  width: 100px;
+  background-color: aquamarine;
+  align-items: center;
+  justify-content: center;
+}

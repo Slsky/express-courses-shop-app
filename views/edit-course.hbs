@@ -1,0 +1,81 @@
+{{#content "hero-block"}}
+<div id="app">
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Редактировать {{ context.title}}</h1>
+            <h2 class="subtitle">
+                Здесь ты можешь редактировать свой курс
+            </h2>
+
+            <form action="/courses/edit/{{context.id}}" method="post" @submit="checkForm">
+                <div class="field">
+                    <label class="label">Название курса</label>
+                    <div class="control">
+                        <input class="input" id="title" name="title" type="text" placeholder="Text input"
+                            value="{{context.title}}">
+                    </div>
+
+
+                    <div v-if="errors.price.length" data-id="validTitle" hidden>
+
+                        <p class="help is-success">This username is available</p>
+                    </div>
+
+                    <div data-id="validTitle" hidden>
+                        <p class="help is-success">This username is available</p>
+                    </div>
+                    <div data-id="inValidTitle" hidden>
+                        <p class="help is-danger">This username is available</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Стоимость курса</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" name="price" v-model='price' placeholder="Text input"
+                            value="{{context.price}}">
+
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <div v-if="errors.price">
+                        <p class="help is-danger">{% errors.price[0] %} </p>
+                    </div>
+
+                    <p class="help is-success">This username is available {% errors.price[0] %}</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">URL картинки</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" v-bind:class="[ errors.price.lenght ? 'is-danger' : 'is-success']"
+                            v-model="validation" type="text" name="url" placeholder="Введите url"
+                            value="{{context.imgUrl}}">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                    </div>
+                    <p class="help is-danger">This email is invalid</p>
+                </div>
+                <input type="hidden" name="id" value={{context.id}}>
+
+                <button type="submit" class="button is-primary">Отправить</button>
+
+
+
+            </form>
+        </div>
+    </section>
+</div>
+{{/content}}
+
+
+{{#content "scripts-block" mode='append'}}
+{{/content}}

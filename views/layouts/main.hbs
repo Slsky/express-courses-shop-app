@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{#block "header-block"}}
+{{> head}}
+{{/block}}
+
+<body>
+    {{> modal}}
+
+    {{#block "nav-block"}}
+    {{>nav}}
+    {{/block}}
+    <main class="container">
+        {{{body}}}
+
+        {{#block "hero-block"}}
+        {{> hero}}
+        {{/block}}
+    </main>
+
+    {{#block "footer-block"}}
+    {{> footer }}
+    <p>&copy; 1999</p>
+    {{/block}}
+
+    {{#block "scripts-block"}}
+    {{> scripts}}
+    {{/block}}
+
+</body>
+
+</html>
